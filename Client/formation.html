@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ajouter une session de formation | Forem Formation</title>
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+  <link rel="stylesheet" href="additional-style.css">
+</head>
+<body>
+  <header class="navbar has-shadow is-white">
+    <figure class="navbar-brand">
+      <a href="#" class="navbar-item p-4"><img src="./src/img/Logo-Forem-noir.png" alt="Logo du Forem"></a>
+      <figcaption class="navbar-item">On entre enfin au 21e siècle</figcaption>
+    </figure>
+    <nav class="navbar-menu">
+      <ul class="navbar-end" id="account-nav-link">
+        <li class="navbar-item p-0"><a href="#" class="navbar-item p-4">Connexion</a></li>
+        <li class="navbar-item p-0"><a href="gestion-evaluation.html" class="navbar-item p-4">Remplir la GE</a></li>
+        <li class="navbar-item p-0"><a href="" class="navbar-item p-4">Session</a></li>
+        <li class="navbar-item p-0"><a href="./formation.html" class="navbar-item p-4">Formation</a></li>
+      </ul>
+  </header>
+  <main class="columns pt-6" style="min-height:70vh;">
+    <section class="column is-6 is-offset-1">
+      <h1 class="title">Ajouter une session de formation</h1>
+      <form action="" method="post">
+        <div class="is-flex is-justify-content-space-between my-5">
+        <div class="field" style="width:250px;">
+          <label class="label" for="metier">Métier :</label>
+          <div class="select" style="width:250px;">
+            <select name="metier">
+              <option hidden selected disabled >Sélectionner un métier</option>
+              <option>Web-developper Front-End</option>
+              <option>Chargé de communication digitale</option>
+              <option>Graphic Designer</option>
+              <option>UX & UI Designer</option>
+         </select>
+        </div>
+        </div>
+        <div class="field" style="width:250px;">
+          <label for="centre" class="label">Centre :</label>
+          <div class="select">
+            <select name="centre">
+              <option default hidden>Sélectionner un centre</option>
+              <option>Cepegra</option>
+              <option>Technobel</option>
+              <option>Corail</option>
+            </select>
+          </div>
+        </label></div>
+      </div>
+      <div class="is-flex is-justify-content-space-between my-5">
+        <div class="field" style="max-width:250px;">
+          <label class="label">Nom de la session :
+            <input type="text" class="input" name="session-name" placeholder="Indiquer le nom de la session">
+          </label></div>
+        <div class="field" style="width:250px;">
+          <label for="session-start" class="label">Date de début :</label>
+            <input type="date" class="input" value="" min="2022-01-01" name="session-start" placeholder="" style="width:210px;color:lightgrey;">
+          </label></div>
+      </div>
+      <div class="is-flex is-justify-content-space-between my-5">
+        <div class="field" style="width:250px;">
+          <label class="label" for="formateur">Formateur responsable :</label>
+          <div class="select" style="width:250px;">
+            <select name="formateur">
+              <option hidden selected disabled >Sélectionner un formateur</option>
+              <option>Pierre Charlier</option>
+              <option>Olivier Belleri</option>
+         </select>
+        </div>
+        </div>
+        <div class="field" style="width:250px;">
+          <label for="formateur-aux" class="label">Formateur auxiliaire :</label>
+          <div class="select">
+            <select name="formateur-aux">
+              <option default hidden>Sélectionner un formateur</option>
+              <option>Pierre Charlier</option>
+              <option>Olivier Belleri</option>
+            </select>
+          </div>
+        </label></div>
+      </div>
+      <div class="control has-text-centered my-5">
+        <input type="button" value="Ajouter une session"class="button is-link" disabled style="width:30%;">
+      </div>
+      </form>
+      
+    </section>
+  </main>
+  <footer class="footer is-flex is-justify-content-space-between">
+    <div class="content">&copy;2022</div>
+    <a class="easter-egg">Wazaaah</a>
+  </footer>
+</body>
+</html>

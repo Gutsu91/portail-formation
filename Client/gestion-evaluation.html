@@ -17,17 +17,23 @@
     </figure>
     <nav class="navbar-menu">
       <ul class="navbar-end" id="account-nav-link">
-        <li class="navbar-item p-0"><a href="#" class="navbar-item">Connexion</a></li>
+        <li class="navbar-item p-0"><a href="#" class="navbar-item p-4">Connexion</a></li>
+        <li class="navbar-item p-0"><a href="gestion-evaluation.html" class="navbar-item p-4">Remplir la GE</a></li>
+        <li class="navbar-item p-0"><a href="" class="navbar-item p-4">Session</a></li>
+        <li class="navbar-item p-0"><a href="./formation.html" class="navbar-item p-4">Formation</a></li>
       </ul>
-    </nav>
   </header>
 <main class="columns pt-6">
   <section class="column is-8 is-offset-1">
     <h1 class="title">Formulaire de Gestion-Evalutation</h1>
     <h2 class="subtitle">Pour le métier de Web Developpeur - Front-End</h2>
-    <progress value="1" max="6"></progress>
-    <form action="" method="post">
-      <div class="field">
+    <progress value="1" max="6" class="progress is-link"></progress>
+    <div class="is-flex is-justify-content-space-between">
+      <buton class="button is-link" style="width:100px;">Précedent</buton>
+      <buton class="button is-link" style="width:100px;">Suivant</buton>
+    </div>
+    <form action="" method="post" class="my-6">
+      <div class="" data-id="1">
       <h3 class="title is-4">Esprit d'analyse</h3>
       <p class="subtitle is-5">J'analyse les problèmes pour y trouver des solutions
         Capacité de réfléchir et de faire montre de logique et de jugement face à des décisions, d'évaluer des problèmes ou des situations en faisant les recherches nécessaires et en analysant les différentes composantes
@@ -38,13 +44,15 @@
         <label class="radio+radio"><input type="radio" name="analyse" class="m-2">3. Je décompose un problème en sous-éléments en utilisant un schéma. Je consulte différentes ressources & documentations pour parvenir à une solution.</label>
         <label class="radio+radio"><input type="radio" name="analyse" class="m-2">4. J'anticipe les évolutions futures et organise les problèmes. J'évalue de manière réaliste mes limites et le temps nécessaire.</label>
       </div>
-    </div>
-    <div class="field">
-      <buton class="button is-link" style="width:100px;">Précedent</buton>
-      <buton class="button is-link" style="width:100px;">Suivant</buton>
-    </div>
+      <div class="control has-text-centered my-5">
+        <buton class="button is-link" disabled>Envoyer</buton>
+      </div>
     </form>
   </section>
 </main>
+<footer class="footer is-flex is-justify-content-space-between">
+  <div class="content">&copy;2022</div>
+  <a class="easter-egg">Wazaaah</a>
+</footer>
 </body>
 </html>

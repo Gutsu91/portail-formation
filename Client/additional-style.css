@@ -1,22 +1,11 @@
-progress {
-  width: 100%;
-  height: 25px;
-  border-radius: 0px;
-  margin-bottom:2rem;
-  appearance: none;
-  -webkit-appearance: none;
+a.easter-egg {
+  opacity:0.1;
+  pointer-event: none;
+  cursor: default;
+  padding: 0 2rem;
 }
 
-progress[value]::-webkit-progress-bar {
-  background-color:red;
-}
-progress[value]::-webkit-progress-value {
-  background-color: grey;
-}
-progress[value]::-webkit-progress-value::before {
-  content:"•";
-  position: absolute;
-  right:0;
-  top: -125%;
-  color:black;
+a.easter-egg:hover {
+  opacity: 0.8;
+  font-size: 2rem;
 }
