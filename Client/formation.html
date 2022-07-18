@@ -13,20 +13,25 @@
   <header class="navbar has-shadow is-white">
     <figure class="navbar-brand">
       <a href="#" class="navbar-item p-4"><img src="./src/img/Logo-Forem-noir.png" alt="Logo du Forem"></a>
-      <figcaption class="navbar-item">On entre enfin au 21e siècle</figcaption>
     </figure>
     <nav class="navbar-menu">
       <ul class="navbar-end" id="account-nav-link">
-        <li class="navbar-item p-0"><a href="#" class="navbar-item p-4">Connexion</a></li>
+        <li class="navbar-item p-0"><a href="./login.html" class="navbar-item p-4">Connexion</a></li>
         <li class="navbar-item p-0"><a href="gestion-evaluation.html" class="navbar-item p-4">Remplir la GE</a></li>
-        <li class="navbar-item p-0"><a href="" class="navbar-item p-4">Session</a></li>
-        <li class="navbar-item p-0"><a href="./formation.html" class="navbar-item p-4">Formation</a></li>
+        <li class="navbar-item has-dropdown is-hoverable p-0">
+          <a href="./session.html" class="navbar-item p-4">
+          Stagiaire</a>
+        <ul class="navbar-dropdown">
+          <li class="navbar-item"><a href="./inscrire-stagiaire.html">Inscrire un stagiaire</a></li>
+          <li class="navbar-item"><a href="./session.html">Assigner une session</a></li>
+        </ul></a></li>
+        <li class="navbar-item p-0"><a href="./formation.html" class="navbar-item p-4">Sessions</a></li>
       </ul>
   </header>
   <main class="columns pt-6" style="min-height:70vh;">
-    <section class="column is-6 is-offset-1">
+    <section class="column is-4 is-offset-1">
       <h1 class="title">Ajouter une session de formation</h1>
-      <form action="" method="post">
+      <form method="post">
         <div class="is-flex is-justify-content-space-between my-5">
         <div class="field" style="width:250px;">
           <label class="label" for="metier">Métier :</label>

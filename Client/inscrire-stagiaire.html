@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inscrire un stagiaire | Forem Formation</title>
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+  <link rel="stylesheet" href="additional-style.css">
+</head>
+<body>
+  <header class="navbar has-shadow is-white">
+    <figure class="navbar-brand">
+      <a href="#" class="navbar-item p-4"><img src="./src/img/Logo-Forem-noir.png" alt="Logo du Forem"></a>
+    </figure>
+    <nav class="navbar-menu">
+      <ul class="navbar-end" id="account-nav-link">
+        <li class="navbar-item p-0"><a href="./login.html" class="navbar-item p-4">Connexion</a></li>
+        <li class="navbar-item p-0"><a href="gestion-evaluation.html" class="navbar-item p-4">Remplir la GE</a></li>
+        <li class="navbar-item has-dropdown is-hoverable p-0">
+          <a href="./session.html" class="navbar-item p-4">
+          Stagiaire</a>
+        <ul class="navbar-dropdown">
+          <li class="navbar-item"><a href="./inscrire-stagiaire.html">Inscrire un stagiaire</a></li>
+          <li class="navbar-item"><a href="./session.html">Assigner une session</a></li>
+        </ul></a></li>
+        <li class="navbar-item p-0"><a href="./formation.html" class="navbar-item p-4">Sessions</a></li>
+      </ul>
+  </header>
+  <main class="columns pt-6"style="min-height:70vh;">
+    <section class="column is-4 is-offset-1">
+      <h1 class="title">Inscrire un stagiaire</h1>
+      <form method="post" id="inscrire-stagiaire">
+        <div class="is-flex is-justify-content-space-between my-5">
+          <div class="field" style="width:250px;">
+            <label for="prenom" class="label">Prenom :
+            <input type="text" class="input" placeholder="Prénom du stagiaire"></label>
+          </div>
+          <div class="field" style="width:250px;">
+            <label for="" class="label"> Nom de famille :
+            <input type="text" class="input" placeholder="Nom du stagiaire"></label>
+          </div>
+        </div>
+        <div class="is-flex is-justify-content-space-between my-5">
+          <div class="field" style="width:250px;">
+            <label for="prenom" class="label">Adresse email :
+            <input type="email" class="input" placeholder="Email du stagiaire"></label>
+          </div>
+          <div class="field" style="width:250px;">
+            <label for="" class="label"> Mot de passe :
+            <input type="password" class="input" placeholder="Mot de passe du stagiaire"></label>
+          </div>
+        </div>
+        <div class="field">
+          <label class="checkbox"><input type="checkbox" class="checkbox m-2">Inscrire le stagiaire à une formation</label>
+        </div>
+          <div class="is-flex is-justify-content-space-between my-5">
+            <div class="field" style="width:250px;">
+              <label for="metier" class="label">Métier :</label>
+              <div class="select">
+                <select name="metier" id="metier" disabled>
+                <option value="" hidden selected disabled>Sélectionner un métier</option>
+                <option value="">Webdesigner - Développeur Front-End</option>
+                <option value="">Chargé de Communication Digitale</option>
+              </select>
+              </div>
+            </div>
+            <div class="field" style="width:250px;">
+              <label for="session" class="label"> Session :</label>
+              <div class="select">
+                <select name="session" class="sessionSelect" id="session" disabled>
+                <option value="" hidden selected disabled>Sélectionner une session</option>
+                <option value="">INGRWF-10</option>
+                <option value="">INGRWF-11</option>
+              </select>
+            </div>
+            </div>
+          </div>
+          <div class="is-flex is-justify-content-space-around my-5">
+            <input type="button" value="Inscrire le stagiaire"class="button is-link" disabled style="width:30%;">
+            <input type="reset" value="Réinitialiser"class="button" style="width:30%;">
+          </div>
+      </form>
+    </section>
+</main>
+  <footer class="footer is-flex is-justify-content-space-between">
+    <div class="content">&copy;2022</div>
+    <a class="easter-egg">Wazaaah</a>
+  </footer>
+  <script>
+    const enableSession = document.querySelector('.checkbox');
+    const sessionSelect = document.querySelector('#session');
+    const metierSelect = document.querySelector('#metier')
+  
+    enableSession.addEventListener('change', (e) => {
+      console.log('checkbox')
+      sessionSelect.toggleAttribute('disabled')
+      metierSelect.toggleAttribute('disabled')
+    })
+  </script>
+</body>
+</html>

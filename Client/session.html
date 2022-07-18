@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inscrire des stagiaires | Forem Formation</title>
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+  <link rel="stylesheet" href="additional-style.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous"/>
+</head>
+<body>
+  <header class="navbar has-shadow is-white">
+    <figure class="navbar-brand">
+      <a href="#" class="navbar-item p-4"><img src="./src/img/Logo-Forem-noir.png" alt="Logo du Forem"></a>
+    </figure>
+    <nav class="navbar-menu">
+      <ul class="navbar-end" id="account-nav-link">
+        <li class="navbar-item p-0"><a href="./login.html" class="navbar-item p-4">Connexion</a></li>
+        <li class="navbar-item p-0"><a href="gestion-evaluation.html" class="navbar-item p-4">Remplir la GE</a></li>
+        <li class="navbar-item has-dropdown is-hoverable p-0">
+          <a href="./session.html" class="navbar-item p-4">
+          Stagiaire</a>
+        <ul class="navbar-dropdown">
+          <li class="navbar-item"><a href="./inscrire-stagiaire.html">Inscrire un stagiaire</a></li>
+          <li class="navbar-item"><a href="./session.html">Assigner une session</a></li>
+        </ul></a></li>
+        <li class="navbar-item p-0"><a href="./formation.html" class="navbar-item p-4">Sessions</a></li>
+      </ul>
+  </header>
+  <main class="columns pt-6" style="min-height:70vh;">
+    <section class="column is-8 is-offset-1">
+      <h1 class="title">Assigner une session</h1>
+      <div class="select my-4">
+      <select name="" id="">
+        <option selected hidden disabled>Sélectionner une session</option>
+        <option>INGRWF10</option>
+        <option>INGRWC-8</option>
+      </select>
+    </div>
+      <form method="post">
+        <div class="field my-4">
+          <div class="control has-icons-right">
+          <input type="text" class="input is-medium" placeholder="Cherchez une personne">
+          <span class="icon is-small is-right"><i class="fas fa-search"></i></span>
+        </div>
+      </div>
+      </form>
+      <table class="table my-6" style="width:100%;">
+        <thead>
+          <th>Prénom</th>
+          <th>Nom</th>
+          <th>Email</th>
+          <th>INGRWF10</th>
+        </thead>
+        <tbody>
+          <tr>
+            <td>François</td>
+            <td>Titeca</td>
+            <td>titeca.f@gmail.com</td>
+            <td><input type="checkbox" class="" checked></td>
+          </tr>
+          <tr>
+            <td>Bilitis</td>
+            <td>Jambon</td>
+            <td>bili@jinvente.be</td>
+            <td><input type="checkbox" class="checkbox" checked></td>
+          </tr>
+          <tr>
+            <td>Jean-Paul</td>
+            <td>II</td>
+            <td>zepope@eglise.va</td>
+            <td><input type="checkbox" class="checkbox"></td>
+          </tr>
+        </tbody>
+      </table>
+  </section>
+  </main>
+  <footer class="footer is-flex is-justify-content-space-between">
+    <div class="content">&copy;2022</div>
+    <a class="easter-egg">Wazaaah</a>
+  </footer>
+</body>
+</html>

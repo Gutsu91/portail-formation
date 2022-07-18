@@ -13,14 +13,19 @@
   <header class="navbar has-shadow is-white">
     <figure class="navbar-brand">
       <a href="#" class="navbar-item p-4"><img src="./src/img/Logo-Forem-noir.png" alt="Logo du Forem"></a>
-      <figcaption class="navbar-item">On entre enfin au 21e siècle</figcaption>
     </figure>
     <nav class="navbar-menu">
       <ul class="navbar-end" id="account-nav-link">
-        <li class="navbar-item p-0"><a href="#" class="navbar-item p-4">Connexion</a></li>
-        <li class="navbar-item p-0"><a href="gestion-evaluation.html" class="navbar-item p-4">Remplir la GE</a></li>
-        <li class="navbar-item p-0"><a href="" class="navbar-item p-4">Session</a></li>
-        <li class="navbar-item p-0"><a href="./formation.html" class="navbar-item p-4">Formation</a></li>
+        <li class="navbar-item p-0"><a href="./login.html" class="navbar-item p-4">Connexion</a></li>
+        <li class="navbar-item p-0"><a href="./gestion-evaluation.html" class="navbar-item p-4">Remplir la GE</a></li>
+        <li class="navbar-item has-dropdown is-hoverable p-0">
+          <a href="./session.html" class="navbar-item p-4">
+          Stagiaire</a>
+        <ul class="navbar-dropdown">
+          <li class="navbar-item"><a href="./inscrire-stagiaire.html">Inscrire un stagiaire</a></li>
+          <li class="navbar-item"><a href="./session.html">Assigner une session</a></li>
+        </ul></a></li>
+        <li class="navbar-item p-0"><a href="./formation.html" class="navbar-item p-4">Sessions</a></li>
       </ul>
   </header>
 <main class="columns pt-6">
@@ -29,20 +34,45 @@
     <h2 class="subtitle">Pour le métier de Web Developpeur - Front-End</h2>
     <progress value="1" max="6" class="progress is-link"></progress>
     <div class="is-flex is-justify-content-space-between">
-      <buton class="button is-link" style="width:100px;">Précedent</buton>
-      <buton class="button is-link" style="width:100px;">Suivant</buton>
+      <buton class="button is-link previous" style="width:100px;" disabled>Précedent</buton>
+      <buton class="button is-link next" style="width:100px;">Suivant</buton>
     </div>
     <form action="" method="post" class="my-6">
-      <div class="" data-id="1">
-      <h3 class="title is-4">Esprit d'analyse</h3>
-      <p class="subtitle is-5">J'analyse les problèmes pour y trouver des solutions
-        Capacité de réfléchir et de faire montre de logique et de jugement face à des décisions, d'évaluer des problèmes ou des situations en faisant les recherches nécessaires et en analysant les différentes composantes
-        </p>
-      <div class="control is-flex is-flex-direction-column">
-        <label class="radio+radio"><input type="radio" name="analyse" class="m-2">1. Je me fie à mon instinct et je commence à travailler sans réflexion.</label>
-        <label class="radio+radio"><input type="radio" name="analyse" class="m-2">2. Je consulte le web à la recherche d'une solution toute faite. Je fais appel à quelqu'un pour m'aider.</label>
-        <label class="radio+radio"><input type="radio" name="analyse" class="m-2">3. Je décompose un problème en sous-éléments en utilisant un schéma. Je consulte différentes ressources & documentations pour parvenir à une solution.</label>
-        <label class="radio+radio"><input type="radio" name="analyse" class="m-2">4. J'anticipe les évolutions futures et organise les problèmes. J'évalue de manière réaliste mes limites et le temps nécessaire.</label>
+      <div class="questionWrapper is-active" data-id="1" id="1">
+        <h3 class="title is-4">Esprit d'analyse</h3>
+        <p class="subtitle is-5">J'analyse les problèmes pour y trouver des solutions
+          Capacité de réfléchir et de faire montre de logique et de jugement face à des décisions, d'évaluer des problèmes ou des situations en faisant les recherches nécessaires et en analysant les différentes composantes
+          </p>
+        <div class="control is-flex is-flex-direction-column foo">
+          <label class="radio+radio"><input type="radio" name="analyse" class="m-2 radio">1. Je me fie à mon instinct et je commence à travailler sans réflexion.</label>
+          <label class="radio+radio"><input type="radio" name="analyse" class="m-2 radio">2. Je consulte le web à la recherche d'une solution toute faite. Je fais appel à quelqu'un pour m'aider.</label>
+          <label class="radio+radio"><input type="radio" name="analyse" class="m-2 radio">3. Je décompose un problème en sous-éléments en utilisant un schéma. Je consulte différentes ressources & documentations pour parvenir à une solution.</label>
+          <label class="radio+radio"><input type="radio" name="analyse" class="m-2 radio">4. J'anticipe les évolutions futures et organise les problèmes. J'évalue de manière réaliste mes limites et le temps nécessaire.</label>
+        </div>
+      </div>
+      <div class="is-hidden questionWrapper" data-id="2" id="2">
+        <h3 class="title is-4">Curiosité Intellectuelle</h3>
+        <p class="subtitle is-5">Je suis curieux intellectuellement pour ce qui touche à mon métier
+          Capacité d'ouvrir son champ de connaissance, d'avoir l'esprit ouvert, d'acquérir continuellement de nouvelles connaissances et d'apprendre de ses expériences antérieures.
+          </p>
+        <div class="control is-flex is-flex-direction-column">
+          <label class="radio+radio"><input type="radio" name="analyse" class="m-2 radio">1. J'évite d'utiliser des choses inconnues et je reste sur mes acquis.</label>
+          <label class="radio+radio"><input type="radio" name="analyse" class="m-2 radio">2. Je découvre des nouveautés lorsqu'elles se présentent à moi. Je pose des questions à mes pairs en fonction des besoins..</label>
+          <label class="radio+radio"><input type="radio" name="analyse" class="m-2 radio">3. Je me tiens au courant des dernières nouveautés dans mon domaine. Je fais preuve de sens critique, j'établis des liens.</label>
+          <label class="radio+radio"><input type="radio" name="analyse" class="m-2 radio">4. Je fais des recherches et me lance des défis en dehors de mon temps de travail "officiel" (hackathons, challenges…).</label>
+        </div>
+      </div>
+      <div class="is-hidden questionWrapper" data-id="3" id="3">
+        <h3 class="title is-4">Autonomie</h3>
+        <p class="subtitle is-5">Je suis curieux intellectuellement pour ce qui touche à mon métier
+          Capacité d'ouvrir son champ de connaissance, d'avoir l'esprit ouvert, d'acquérir continuellement de nouvelles connaissances et d'apprendre de ses expériences antérieures.
+          </p>
+        <div class="control is-flex is-flex-direction-column">
+          <label class="radio+radio"><input type="radio" name="analyse" class="m-2 radio">1. J'évite d'utiliser des choses inconnues et je reste sur mes acquis.</label>
+          <label class="radio+radio"><input type="radio" name="analyse" class="m-2 radio">2. Je découvre des nouveautés lorsqu'elles se présentent à moi. Je pose des questions à mes pairs en fonction des besoins..</label>
+          <label class="radio+radio"><input type="radio" name="analyse" class="m-2 radio">3. Je me tiens au courant des dernières nouveautés dans mon domaine. Je fais preuve de sens critique, j'établis des liens.</label>
+          <label class="radio+radio"><input type="radio" name="analyse" class="m-2 radio">4. Je fais des recherches et me lance des défis en dehors de mon temps de travail "officiel" (hackathons, challenges…).</label>
+        </div>
       </div>
       <div class="control has-text-centered my-5">
         <buton class="button is-link" disabled>Envoyer</buton>
@@ -54,5 +84,81 @@
   <div class="content">&copy;2022</div>
   <a class="easter-egg">Wazaaah</a>
 </footer>
+<script>
+const previousButton = document.querySelector('.previous')
+const nextButton = document.querySelector('.next')
+const questionWrapper = document.querySelectorAll('.questionWrapper')
+let currentQuestion = document.querySelector('.is-active')
+const nextQuestion = parseInt(currentQuestion.dataset.id)+1
+const progress = document.querySelector('progress')
+let previousQuestion = parseInt(currentQuestion.dataset.id)-1
+const control = document.querySelectorAll('.control')
+
+progress.setAttribute('max', questionWrapper.length)
+
+/* 
+truc a check : 
+- c'est pas normal d'invoquer juste currentQuestion, il faut invoquer currentQuestion.dataset.id pour avoir le bon résultat sinon on a juste le node html
+- si on clique sur précédent alors que c'est la question 1 ça masque tout, MALGRE QU'IL SOIT DISABLE (et c'est pareil avec un preventdefault) faudrait ajouter un check pour s'assurer que la currentquestion != 1
+- une fois que les deux problemes du dessus sont réglés, débrouille toi pour débloquer les fucking bouton suivant en question 2
+- si t'ajoute une question (et il faut) oublie pas de modifier les data-id correspondant
+- comment on fait pour valider que tous ces putains de champs sont remplis ? Car une fois que c'est fait on peut débloquer le bouton envoyer
+
+*/
+
+nextButton.addEventListener('click', (e)=> {
+  console.log(parseInt(currentQuestion.dataset.id)+1)
+  questionWrapper.forEach(q => {
+    q.classList.remove('is-active')
+    q.classList.add('is-hidden')
+  })
+  questionWrapper.forEach(q => {
+    if(q.getAttribute('data-id') == nextQuestion) {
+      q.classList.remove('is-hidden')
+      q.classList.add('is-active')
+    }
+  }) 
+  currentQuestion = document.querySelector('.is-active')
+  currentQuestion.dataset.id !== 1
+    ? previousButton.removeAttribute('disabled')
+    : previousButton.setAttribute('disabled','')
+  currentQuestion.dataset.id != questionWrapper.length
+    ? nextButton.setAttribute('disabled', '')
+    : console.log('bar')
+  progress.setAttribute('value', currentQuestion.dataset.id)
+  console.log('current question: ' + currentQuestion.dataset.id)
+  previousQuestion = parseInt(currentQuestion.dataset.id)-1
+})
+
+previousButton.addEventListener('click', (e) => {
+  questionWrapper.forEach(q => {
+    q.classList.remove('is-active')
+    q.classList.add('is-hidden')
+  })
+  questionWrapper.forEach(q => {
+    if(q.getAttribute('data-id') == previousQuestion) {
+      q.classList.remove('is-hidden')
+      q.classList.add('is-active')
+    }
+  })
+  currentQuestion = document.querySelector('.is-active')
+  nextQuestion-1 !== 1
+    ? console.log('osef')
+    : previousButton.setAttribute('disabled','')
+  nextQuestion-1 !== questionWrapper.length
+  ? nextButton.removeAttribute('disabled')
+  : console.log('bar')
+  progress.setAttribute('value', currentQuestion.dataset.id)
+})
+
+control.forEach(el  => {
+  el.addEventListener('click', () =>{
+    console.log('<- c le nombre de fois que ton event fonctionne')
+  })
+  //trigger la fonction qui check si tous les champs sont remplis
+  
+})
+
+</script>
 </body>
 </html>
