@@ -4,20 +4,68 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Forem - Connexion au portail Formation</title>
+  <title>Connexion au portail Formation | Forem</title>
 
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous"/>
+
 </head>
 <body>
-  <header class="navbar has-shadow">
+  <header class="navbar has-shadow is-white">
     <figure class="navbar-brand">
-      <img src="./src/img/Logo-Forem-noir.png" alt="Logo du Forem" width="200" height="66">
-      <figcaption>Entre enfin au 21e siècle</figcaption>
+      <a href="#" class="navbar-item p-4"><img src="./src/img/Logo-Forem-noir.png" alt="Logo du Forem"></a>
+      <figcaption class="navbar-item">On entre enfin au 21e siècle</figcaption>
     </figure>
-
+    <nav class="navbar-menu">
+      <ul class="navbar-end" id="account-nav-link">
+        <li class="navbar-item p-0"><a href="#" class="navbar-item">Connexion</a></li>
+      </ul>
+    </nav>
   </header>
   <main>
-    <h1>Hello Bulma</h1>
+    <section class="section columns mt-6">
+      <div class="box column is-6 is-offset-3 p-5 has-background-primary">
+        <div class="title-wrapper">
+          <h1 class="title">Connectez-vous</h1>
+          <p class="subtitle">pour accéder aux fonctionnalité de la platforme</p>
+        </div>
+      
+
+      <div class="columns m-3">
+        <form action="" method="post" class="column is-6 pr-6">
+          <div class="field">
+            <label for="login" class="label">Email</label>
+            <div class="control has-icons-left">
+              <input type="text" class="input" name="login" placeholder="Email">
+              <span class="icon is-small is-left"><i class="fas fa-envelope"></i></span>
+            </div>
+          </div>
+          <div class="field">
+            <label for="password" class="label">Mot de passe</label>
+            <div class="control has-icons-left">
+                <input type="password" class="input" name="password" placeholder="Mot de passe">
+                <span class="icon is-small is-left">
+                  <i class="fas fa-lock"></i></span>
+            </div>
+          </div>
+          <div class="field mt-5">
+            <button class="is-link button">Connexion</button>
+          </div>
+        </form>
+        <div class="column news is-6 pl-6" style="border-left:1px solid lightgrey;">
+          <div class="news-wrapper">
+            <p class=" is small has-text-weight-medium">Titre de la news 1</p>
+            <p class="is-small pl-2">Excerpt de la news</p>
+          </div>
+          <div class="news-wrapper mt-3">
+            <p class=" is small has-text-weight-medium">Titre de la news 2</p>
+            <p class="is-small pl-2">Excerpt de la news</p>
+          </div>
+        </div>
+      </div>
+    </div>
+      
+    </section>
   </main>
   <footer>
 
