@@ -1,0 +1,3 @@
+RewriteEngine On
+# ---- Route auth ---- # 
+RewriteRule auth/$ auth.php [L]

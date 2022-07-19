@@ -31,6 +31,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') :
         $auth['data']['email'] = $row['email'];
         $auth['data']['token'] = $_SESSION['token'];
         $auth['data']['id_user'] = $_SESSION['id_user'];
+        $auth['data']['type_user'] = $row['type_user'];
     endif;
   endif;
 endif;
