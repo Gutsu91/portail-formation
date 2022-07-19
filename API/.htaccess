@@ -1,3 +1,7 @@
 RewriteEngine On
 # ---- Route auth ---- # 
 RewriteRule auth/$ auth.php [L]
+
+# ---- Route eval ---- #
+RewriteRule evaluation/([0-9]+)$ evaluation.php?id_formation=$1 [L]
+RewriteRule evaluation/$ evaluation.php [L]
