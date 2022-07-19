@@ -3,6 +3,14 @@ const connectForm = document.querySelector('.connectForm')
 const login = document.querySelector('.login')
 const pwd = document.querySelector('.password')
 
+/* gestion du header */
+const loginLink = document.querySelector('.login-link')
+const geLink = document.querySelector('.ge-link')
+const stagiaireLink = document.querySelector('.stagiaire-link')
+const sessionLink = document.querySelector('.session-link')
+
+
+
 connectForm.addEventListener('submit', e => {
   e.preventDefault()
   let letsConnect = {
