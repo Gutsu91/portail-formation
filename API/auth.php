@@ -28,6 +28,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') :
         $_SESSION['token'] = md5($row['email'].time());
         $_SESSION['expiration'] = time() + 1 * 600;
         $auth['response']['message'] = "OK connecté";
+        $auth['response']['code'] = 200;
         $auth['data']['email'] = $row['email'];
         $auth['data']['token'] = $_SESSION['token'];
         $auth['data']['id_user'] = $_SESSION['id_user'];

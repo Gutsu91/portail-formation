@@ -16,16 +16,16 @@
     </figure>
     <nav class="navbar-menu">
       <ul class="navbar-end" id="account-nav-link">
-        <li class="navbar-item p-0"><a href="./login.html" class="navbar-item p-4">Connexion</a></li>
-        <li class="navbar-item p-0"><a href="gestion-evaluation.html" class="navbar-item p-4">Remplir la GE</a></li>
-        <li class="navbar-item has-dropdown is-hoverable p-0">
+        <li class="navbar-item p-0 login-link"><a href="./login.html" class="navbar-item p-4">Connexion</a></li>
+        <li class="navbar-item p-0 ge-link"><a href="./gestion-evaluation.html" class="navbar-item p-4">Remplir la GE</a></li>
+        <li class="navbar-item has-dropdown is-hoverable p-0 stagiaire-link">
           <a href="./session.html" class="navbar-item p-4">
           Stagiaire</a>
         <ul class="navbar-dropdown">
           <li class="navbar-item"><a href="./inscrire-stagiaire.html">Inscrire un stagiaire</a></li>
           <li class="navbar-item"><a href="./session.html">Assigner une session</a></li>
         </ul></a></li>
-        <li class="navbar-item p-0"><a href="./formation.html" class="navbar-item p-4">Sessions</a></li>
+        <li class="navbar-item p-0 session-link"><a href="./formation.html" class="navbar-item p-4">Sessions</a></li>
       </ul>
   </header>
   <main class="columns pt-6"style="min-height:70vh;">
@@ -56,7 +56,7 @@
           <label class="checkbox"><input type="checkbox" class="checkbox m-2">Inscrire le stagiaire à une formation</label>
         </div>
           <div class="is-flex is-justify-content-space-between my-5">
-            <div class="field" style="width:250px;">
+            <!-- <div class="field" style="width:250px;">
               <label for="metier" class="label">Métier :</label>
               <div class="select">
                 <select name="metier" id="metier" disabled>
@@ -65,7 +65,7 @@
                 <option value="">Chargé de Communication Digitale</option>
               </select>
               </div>
-            </div>
+            </div> -->
             <div class="field" style="width:250px;">
               <label for="session" class="label"> Session :</label>
               <div class="select">
@@ -91,12 +91,36 @@
   <script>
     const enableSession = document.querySelector('.checkbox');
     const sessionSelect = document.querySelector('#session');
-    const metierSelect = document.querySelector('#metier')
-  
+    //const metierSelect = document.querySelector('#metier')
+
+    /* gestion du header */
+const loginLink = document.querySelector('.login-link')
+const geLink = document.querySelector('.ge-link')
+const stagiaireLink = document.querySelector('.stagiaire-link')
+const sessionLink = document.querySelector('.session-link')
+
+
+    const UserType = sessionStorage.getItem('type_user')
+switch(UserType){
+  case null :
+    window.location.href = './login.html'
+    break
+  case 'stagiaire':
+    loginLink.remove()
+    stagiaireLink.remove()
+    sessionLink.remove()
+    break
+  default:
+    loginLink.remove()
+    geLink.remove()
+    break
+}
+//
+  /* -------- Toggle de  l'inscription d'un stagiaire à une formation--------*/
     enableSession.addEventListener('change', (e) => {
       console.log('checkbox')
       sessionSelect.toggleAttribute('disabled')
-      metierSelect.toggleAttribute('disabled')
+      // metierSelect.toggleAttribute('disabled')
     })
   </script>
 </body>

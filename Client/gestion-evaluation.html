@@ -16,16 +16,16 @@
     </figure>
     <nav class="navbar-menu">
       <ul class="navbar-end" id="account-nav-link">
-        <li class="navbar-item p-0"><a href="./login.html" class="navbar-item p-4">Connexion</a></li>
-        <li class="navbar-item p-0"><a href="./gestion-evaluation.html" class="navbar-item p-4">Remplir la GE</a></li>
-        <li class="navbar-item has-dropdown is-hoverable p-0">
+        <li class="navbar-item p-0 login-link"><a href="./login.html" class="navbar-item p-4">Connexion</a></li>
+        <li class="navbar-item p-0 ge-link"><a href="./gestion-evaluation.html" class="navbar-item p-4">Remplir la GE</a></li>
+        <li class="navbar-item has-dropdown is-hoverable p-0 stagiaire-link">
           <a href="./session.html" class="navbar-item p-4">
           Stagiaire</a>
         <ul class="navbar-dropdown">
           <li class="navbar-item"><a href="./inscrire-stagiaire.html">Inscrire un stagiaire</a></li>
           <li class="navbar-item"><a href="./session.html">Assigner une session</a></li>
         </ul></a></li>
-        <li class="navbar-item p-0"><a href="./formation.html" class="navbar-item p-4">Sessions</a></li>
+        <li class="navbar-item p-0 session-link"><a href="./formation.html" class="navbar-item p-4">Sessions</a></li>
       </ul>
   </header>
 <main class="columns pt-6">
@@ -95,6 +95,29 @@ let currentQuestion = document.querySelector('.is-active')
 let nextQuestion = parseInt(currentQuestion.dataset.id)+1
 let previousQuestion = parseInt(currentQuestion.dataset.id)-1
 const submitButton = document.querySelector('.submitButton')
+const loginLink = document.querySelector('.login-link')
+const geLink = document.querySelector('.ge-link')
+const stagiaireLink = document.querySelector('.stagiaire-link')
+const sessionLink = document.querySelector('.session-link')
+
+/* gestion du header */
+const UserType = sessionStorage.getItem('type_user')
+switch(UserType){
+  case null :
+    window.location.href = './login.html'
+    break
+  case 'stagiaire':
+    loginLink.remove()
+    stagiaireLink.remove()
+    sessionLink.remove()
+    break
+  default:
+    loginLink.remove()
+    geLink.remove()
+    break
+}
+//
+
 
 
 // activer le bouton envoyer si tous les radiobutton sont checked
