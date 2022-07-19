@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Test sarasse</title>
+</head>
+<body>
+  <h1>osef</h1>
+  <form class="wrapper">
+    <div class="enonce"></div>
+  </form>
+  <script>
+    const urlApi = 'http://localhost/formation/api/test.php?id_formation=1'
+    const enonce = document.querySelector('.enonce')
+
+    fetch(urlApi)
+    .then(response => response.json())
+    .then(response => {
+      console.log(response)
+      let template = ''
+      let reponse = ''
+      Object.values(response).forEach(forma => {
+        template += `
+        <div class="definition">
+        <h2>${forma.nom_savoir}</h2>
+        <p>${forma.definition_savoir}</p>
+        </div>
+        <div class="rep">`
+        forma.comportement.forEach(comp => {
+          template += `
+          <label><input type="radio" name="${comp.id_savoir}" data-id=${comp.id_savoir}${comp.id_comportement}>${comp.grade_comportement}. ${comp.definition_comportement}</label><br>`
+        })
+        template += '</div>'
+      })
+      enonce.innerHTML = template
+    })
+  </script>
+</body>
+</html>

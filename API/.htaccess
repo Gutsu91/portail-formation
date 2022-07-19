@@ -5,3 +5,6 @@ RewriteRule auth/$ auth.php [L]
 # ---- Route eval ---- #
 RewriteRule evaluation/([0-9]+)$ evaluation.php?id_formation=$1 [L]
 RewriteRule evaluation/$ evaluation.php [L]
+
+# ---- Route eval ---- #
+RewriteRule savoir-faire/([0-9]+)$ savoir-faire.php?id_savoir=$1 [L]

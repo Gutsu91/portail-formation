@@ -31,13 +31,13 @@
 <main class="columns pt-6">
   <section class="column is-8 is-offset-1">
     <h1 class="title">Formulaire de Gestion-Evalutation</h1>
-    <h2 class="subtitle">Pour le métier de Web Developpeur - Front-End</h2>
+    <h2 class="subtitle">Pour le métier de </h2>
     <progress value="1" max="6" class="progress is-link"></progress>
     <div class="is-flex is-justify-content-space-between">
       <buton class="button is-link previous" style="width:100px;" disabled>Précedent</buton>
       <buton class="button is-link next" style="width:100px;">Suivant</buton>
     </div>
-    <form action="" method="post" class="my-6">
+    <form action="" method="post" class="my-6 form-eval">
       <div class="questionWrapper is-active" data-id="1" id="1">
         <h3 class="title is-4">Esprit d'analyse</h3>
         <p class="subtitle is-5">J'analyse les problèmes pour y trouver des solutions
@@ -86,9 +86,10 @@
 </footer>
 <script>
   /* -------------- Global var --------------------*/
+const urlApi = 'http://localhost/Formation/API'
 const previousButton = document.querySelector('.previous')
 const nextButton = document.querySelector('.next')
-const questionWrapper = document.querySelectorAll('.questionWrapper')
+let questionWrapper = ''
 const progress = document.querySelector('progress')
 const control = document.querySelectorAll('.control')
 let currentQuestion = document.querySelector('.is-active')
@@ -99,6 +100,9 @@ const loginLink = document.querySelector('.login-link')
 const geLink = document.querySelector('.ge-link')
 const stagiaireLink = document.querySelector('.stagiaire-link')
 const sessionLink = document.querySelector('.session-link')
+const h2 = document.querySelector('h2')
+const formEval = document.querySelector('.form-eval')
+let isTest = ''
 
 /* gestion du header */
 const UserType = sessionStorage.getItem('type_user')
@@ -116,22 +120,75 @@ switch(UserType){
 }
 //
 
-
+// listing des savoir-faires et comportements métiers
+fetch(urlApi + '/evaluation/' + '?id_formation=1')
+.then(response=>response.json())
+.then(response => {
+  console.log(response)
+  h2.innerHTML = `Pour le métier de ${response.formation[0]['nom_formation']}`
+  let templateQuestion = ''
+  isTest = response.comportement
+  response.formation.forEach(savoir => {
+    templateQuestion += `<div class="questionWrapper is-hidden" data-id="${savoir.id_savoir}" id="${savoir.id_savoir}">
+        <h3 class="title is-4">${savoir.nom_savoir}</h3>
+        <p class="subtitle is-5">${savoir.definition_savoir}
+          </p>
+        <div class="control is-flex is-flex-direction-column">
+          </div></div>`
+    
+    fetch(urlApi +'/savoir-faire.php?id_savoir=1')
+    .then(response=>response.json())
+    .then(response => { 
+      console.log(response)
+      let templateChoice =''
+      response.forEach(comportement => {
+        templateChoice +=  `
+          <label class="radio+radio"><input type="radio" name="${comportement.id_savoir}" class="m-2 radio">${comportement.grade_comportement} ${comportement.definition_comportement}</label>`
+      })
+      const controlClass = document.querySelector('.control')
+      controlClass.innerHTML = templateChoice
+    })
+    .catch(error=>console.log(error))
+  })
+  templateQuestion += `<div class="control has-text-centered my-5">
+        <buton class="button is-link submitButton" disabled>Envoyer</buton>
+      </div>`
+  formEval.innerHTML = templateQuestion
+  questionWrapper = document.querySelectorAll('.questionWrapper')
+  // on target la première question pour l'afficher
+  const firstQuestion = document.querySelector('.questionWrapper')
+  firstQuestion.classList.remove('is-hidden')
+  // on set la valeur max de la barre de progrès en fonction du nombre de question
+  progress.setAttribute('max', questionWrapper.length)
+  
+  })
+.catch(error=>console.log(error))
 
 // activer le bouton envoyer si tous les radiobutton sont checked
-control.forEach(el => {
-  let radioChecked
+const checkIfComplete = () => {control.forEach(el => {
+  let radioChecked = ''
   el.addEventListener('click', () => {
     radioChecked = document.querySelectorAll('input[type="radio"]:checked')
     if (radioChecked.length == questionWrapper.length) { 
       submitButton.removeAttribute('disabled')
     }
   })
+}) // ne fonctionne plus. On l'a cassé car ça regarde le questionWrapper avant 
+}
+
+
+
+formEval.addEventListener('click', () => {
+  document.querySelectorAll('input[type="radio"]:checked').length === document.querySelectorAll('.questionWrapper').length 
+  ? submitButton.removeAttribute('disabled')
+  : console.log('pas encore complété')
+
 })
 
 
-// on set la valeur max de la barre de progrès en fonction du nombre de question
-progress.setAttribute('max', questionWrapper.length)
+
+
+
 
 
 // cliquer sur suivant affiche la question suivante
@@ -185,6 +242,8 @@ previousButton.addEventListener('click', (e) => {
   previousQuestion = parseInt(currentQuestion.dataset.id)-1
   nextQuestion = parseInt(currentQuestion.dataset.id)+1
 }) // fin click sur précédent
+
+
 
 </script>
 </body>
