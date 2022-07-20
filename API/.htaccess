@@ -8,9 +8,13 @@ RewriteRule evaluation/$ evaluation.php [L]
 
 # ---- Route user ---- #
 RewriteRule stagiaire/$ stagiaire.php [L]
+RewriteRule search/$ search-user.php [L]
 
 # - Route inscription - #
+RewriteRule inscription/del/([0-9]+)$ inscription.php?id_inscription=$1 [L]
+RewriteRule inscription/([0-9]+)$ inscription.php?id_session=$1 [L]
 RewriteRule inscription/$ inscription.php [L]
+
 
 # - Route sessions - #
 RewriteRule session/$ session.php [L]

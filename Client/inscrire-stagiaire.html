@@ -90,11 +90,10 @@
     <a class="easter-egg">Wazaaah</a>
   </footer>
   <script>
-    const enableSession = document.querySelector('.checkbox');
-    const sessionSelect = document.querySelector('#session');
-    //const metierSelect = document.querySelector('#metier')
+const enableSession = document.querySelector('.checkbox');
+const sessionSelect = document.querySelector('#session');
+//const metierSelect = document.querySelector('#metier')
 
-    /* gestion du header */
 const urlApi = 'http://localhost/Formation/API'
 const loginLink = document.querySelector('.login-link')
 const geLink = document.querySelector('.ge-link')
@@ -109,9 +108,10 @@ const pwdStagiaire = document.querySelector('.password')
 const isStagiaire = document.querySelector('.type-user')
 let enableInscription = ''
 let idNewUser = ''
+let choixSession = ''
 
 
-    const UserType = sessionStorage.getItem('type_user')
+const UserType = sessionStorage.getItem('type_user')
 switch(UserType){
   case null :
     window.location.href = './login.html'
@@ -159,6 +159,7 @@ fetch(urlApi + '/session/')
 /* -------- Creation stagiaire --------*/
 formCreate.addEventListener('submit', e => {
   e.preventDefault()
+  
   fetch(urlApi + '/stagiaire/', {
     header: {'Content-Type' : 'applicaton/json'},
     method: 'POST',
@@ -177,12 +178,13 @@ formCreate.addEventListener('submit', e => {
     console.log('new user id ' + idNewUser)
     enableInscription = document.querySelector('input:checked')
   if(enableInscription !== null) {
+    let idSessionNewUser = parseInt(document.querySelector('#session').value)
     fetch(urlApi + '/inscription/', {
       method: 'POST',
       headers: {'Content-Type' : 'application/json'},
       body: JSON.stringify({
         id_user: idNewUser,
-        id_session: sessionSelect.value
+        id_session: idSessionNewUser
       })
     })
     .then(response => response.json())
@@ -197,7 +199,7 @@ formCreate.addEventListener('submit', e => {
     prenomStagiaire.value = ""
     nomStagiaire.value = ""
     pwdStagiaire.value = ""
-    sessionSelect.value = 0
+    
 })
 
 
