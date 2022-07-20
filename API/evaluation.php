@@ -16,6 +16,7 @@ if($_SERVER['REQUEST_METHOD'] == 'GET'):
     ORDER BY s.id_savoir ASC, c.grade_comportement ASC",
     $_GET['id_formation']);
     $result = $connect->query($req_eval);
+    echo $connect->error;
     $eval['response']['code'] = 200;
     $eval['response']['message'] = 'Info eval propre à un métier particulier';
     $eval['response']['nbhits'] = $result->num_rows;

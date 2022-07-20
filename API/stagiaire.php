@@ -22,9 +22,34 @@ if($_SERVER['REQUEST_METHOD'] == 'GET'):
 endif;
 
 
+// ---------------- Gestion du POST ---------------- //
+if($_SERVER['REQUEST_METHOD'] == 'POST'):
+  $json_user = file_get_contents('php://input');
+  $arrayUSER = json_decode($json_user, true);
+  if(!isset($arrayUSER['email']) OR !isset($arrayUSER['prenom_user']) OR !isset($arrayUSER['nom_user']) OR !isset($arrayUSER['password']) OR !isset($arrayUSER['type_user'])):
+    $user['response']['code'] = 400;
+    $user['response']['message'] = `il manque l'une des informations suivantes: email, prenom, nom, mot de passe ou type d'utilisateur`;
+    else :
+      $req_user  = sprintf(
+                    "INSERT INTO user (email, prenom_user, nom_user, password, type_user) VALUES ('%s', '%s', '%s', '%s', '%s');",
+                    addslashes(strip_tags($arrayUSER['email'])),
+                    addslashes(strip_tags($arrayUSER['prenom_user'])),
+                    addslashes(strip_tags($arrayUSER['nom_user'])),
+                    addslashes(strip_tags($arrayUSER['password'])),
+                    addslashes(strip_tags($arrayUSER['type_user']))
+                  );
+      $connect->query($req_user);
+      echo $connect->error;
+      $user['response']['code'] = 200;
+      $user['response']['message'] = 'L\'utilisateur a été créé ';
+      $user['response']['id_user'] = $connect->insert_id;
+  endif;
+endif;
+
 // ----------- Info réponse de base -------------- //
 if(MODE =="dev"):
-  $auth['response']['script'] = __FILE__;
+  $user['response']['script'] = __FILE__;
+  $user['response']['sql'] = $req_user;
 endif;
 $user['response']['time'] = date('Y-m-d,H:i:s');
 $user['response']['foo'] = "bar";

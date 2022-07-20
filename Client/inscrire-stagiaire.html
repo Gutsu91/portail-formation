@@ -34,24 +34,25 @@
       <form method="post" id="inscrire-stagiaire">
         <div class="is-flex is-justify-content-space-between my-5">
           <div class="field" style="width:250px;">
-            <label for="prenom" class="label">Prenom :
-            <input type="text" class="input" placeholder="Prénom du stagiaire"></label>
+            <label for="firstname" class="label">Prenom :
+            <input type="text" class="input firstname" placeholder="Prénom du stagiaire" name="firstname"></label>
           </div>
           <div class="field" style="width:250px;">
-            <label for="" class="label"> Nom de famille :
-            <input type="text" class="input" placeholder="Nom du stagiaire"></label>
+            <label for="lastname" class="label"> Nom de famille :
+            <input type="text" class="input lastname" placeholder="Nom du stagiaire" name="lastname"></label>
           </div>
         </div>
         <div class="is-flex is-justify-content-space-between my-5">
           <div class="field" style="width:250px;">
-            <label for="prenom" class="label">Adresse email :
-            <input type="email" class="input" placeholder="Email du stagiaire"></label>
+            <label for="email" class="label">Adresse email :
+            <input type="email" class="input email" placeholder="Email du stagiaire" name="email"></label>
           </div>
           <div class="field" style="width:250px;">
-            <label for="" class="label"> Mot de passe :
-            <input type="password" class="input" placeholder="Mot de passe du stagiaire"></label>
+            <label for="password" class="label"> Mot de passe :
+            <input type="password" class="input password" placeholder="Mot de passe du stagiaire" name="password"></label>
           </div>
         </div>
+        <input type="hidden" class="type-user" value="stagiaire">
         <div class="field">
           <label class="checkbox"><input type="checkbox" class="checkbox m-2">Inscrire le stagiaire à une formation</label>
         </div>
@@ -78,7 +79,7 @@
             </div>
           </div>
           <div class="is-flex is-justify-content-space-around my-5">
-            <input type="button" value="Inscrire le stagiaire"class="button is-link" disabled style="width:30%;">
+            <input type="submit" value="Inscrire le stagiaire"class="button is-link submitButton" disabled style="width:30%;">
             <input type="reset" value="Réinitialiser"class="button" style="width:30%;">
           </div>
       </form>
@@ -94,10 +95,20 @@
     //const metierSelect = document.querySelector('#metier')
 
     /* gestion du header */
+const urlApi = 'http://localhost/Formation/API'
 const loginLink = document.querySelector('.login-link')
 const geLink = document.querySelector('.ge-link')
 const stagiaireLink = document.querySelector('.stagiaire-link')
 const sessionLink = document.querySelector('.session-link')
+const formCreate = document.querySelector('#inscrire-stagiaire')
+const submitButton = document.querySelector('.submitButton')
+const prenomStagiaire = document.querySelector('.firstname')
+const nomStagiaire = document.querySelector('.lastname')
+const emailStagiaire = document.querySelector('.email')
+const pwdStagiaire = document.querySelector('.password')
+const isStagiaire = document.querySelector('.type-user')
+let enableInscription = ''
+let idNewUser = ''
 
 
     const UserType = sessionStorage.getItem('type_user')
@@ -114,12 +125,83 @@ switch(UserType){
     break
 }
 //
-  /* -------- Toggle de  l'inscription d'un stagiaire à une formation--------*/
-    enableSession.addEventListener('change', (e) => {
-      console.log('checkbox')
-      sessionSelect.toggleAttribute('disabled')
-      // metierSelect.toggleAttribute('disabled')
+/* -------- Toggle inscription  à une formation  --------*/
+enableSession.addEventListener('change', (e) => {
+  console.log('checkbox')
+  sessionSelect.toggleAttribute('disabled')
+  enableSession.toggleAttribute('checked')
+  // metierSelect.toggleAttribute('disabled')
+})
+
+/*-------------- toggle bouton inscription --------------*/
+formCreate.addEventListener('keypress', e => {
+  if(emailStagiaire.value !== "" && prenomStagiaire.value !== "" & nomStagiaire.value !== "" && pwdStagiaire.value !== "") {
+    submitButton.removeAttribute('disabled')
+  }
+})
+
+/* ---- fetch liste des sessions de formation -----*/
+fetch(urlApi + '/session/')
+.then(response=>response.json())
+.then(response => {
+  console.log(response)
+  let template ='<option value="0" hidden selected disabled data-id="0">Sélectionner une session</option>'
+  response.data.forEach(sess => {
+    template +=`
+              <option value="${sess.id_session}" data-id=${sess.id_session}>${sess.nom_session} - ${sess.date_debut}</option>
+    `
+  })
+  sessionSelect.innerHTML = template
+
+})
+.catch(error=>console.log(error))
+
+/* -------- Creation stagiaire --------*/
+formCreate.addEventListener('submit', e => {
+  e.preventDefault()
+  fetch(urlApi + '/stagiaire/', {
+    header: {'Content-Type' : 'applicaton/json'},
+    method: 'POST',
+    body: JSON.stringify({
+    email: emailStagiaire.value,
+    prenom_user: prenomStagiaire.value,
+    nom_user: nomStagiaire.value,
+    password: pwdStagiaire.value,
+    type_user: isStagiaire.value
+  })
+})
+  .then(response=>response.json())
+  .then(response => {
+    console.log(response)
+    idNewUser = response.response['id_user']
+    console.log('new user id ' + idNewUser)
+    enableInscription = document.querySelector('input:checked')
+  if(enableInscription !== null) {
+    fetch(urlApi + '/inscription/', {
+      method: 'POST',
+      headers: {'Content-Type' : 'application/json'},
+      body: JSON.stringify({
+        id_user: idNewUser,
+        id_session: sessionSelect.value
+      })
     })
+    .then(response => response.json())
+    .then(response => {
+      console.log(response)
+    })
+    .catch(error =>console.log(error))
+  }
+  })
+  .catch(error => console.log(error))
+    emailStagiaire.value = ""
+    prenomStagiaire.value = ""
+    nomStagiaire.value = ""
+    pwdStagiaire.value = ""
+    sessionSelect.value = 0
+})
+
+
+
   </script>
 </body>
 </html>
