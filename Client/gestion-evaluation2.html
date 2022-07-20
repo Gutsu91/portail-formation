@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gestion-Evaluation | Forem Formation</title>
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+  <link rel="stylesheet" href="additional-style.css">
+</head>
+<body>
+  <header class="navbar has-shadow is-white">
+    <figure class="navbar-brand">
+      <a href="#" class="navbar-item p-4"><img src="./src/img/Logo-Forem-noir.png" alt="Logo du Forem"></a>
+    </figure>
+    <nav class="navbar-menu">
+      <ul class="navbar-end" id="account-nav-link">
+        <li class="navbar-item p-0 login-link"><a href="./login.html" class="navbar-item p-4">Connexion</a></li>
+        <li class="navbar-item p-0 ge-link"><a href="./gestion-evaluation.html" class="navbar-item p-4">Remplir la GE</a></li>
+        <li class="navbar-item has-dropdown is-hoverable p-0 stagiaire-link">
+          <a href="./session.html" class="navbar-item p-4">
+          Stagiaire</a>
+        <ul class="navbar-dropdown">
+          <li class="navbar-item"><a href="./inscrire-stagiaire.html">Inscrire un stagiaire</a></li>
+          <li class="navbar-item"><a href="./session.html">Assigner une session</a></li>
+        </ul></a></li>
+        <li class="navbar-item p-0 session-link"><a href="./formation.html" class="navbar-item p-4">Sessions</a></li>
+      </ul>
+  </header>
+<main class="columns pt-6">
+  <section class="column is-8 is-offset-1">
+    <h1 class="title">Formulaire de Gestion-Evalutation</h1>
+    <h2 class="subtitle">Pour le métier de </h2>
+    <progress value="1" max="2" class="progress is-link"></progress>
+    <div class="is-flex is-justify-content-space-between">
+      <buton class="button is-link previous" style="width:100px;" disabled>Précedent</buton>
+      <buton class="button is-link next" style="width:100px;">Suivant</buton>
+    </div>
+    <form action="" method="post" class="my-6 form-eval">
+      <div class="newQuestionWrapper">
+        <div class="questionWrapper is-active" data-id="1" id="1">
+          <h3 class="title is-4">Esprit d'analyse</h3>
+          <p class="subtitle is-5">J'analyse les problèmes pour y trouver des solutions
+            Capacité de réfléchir et de faire montre de logique et de jugement face à des décisions, d'évaluer des problèmes ou des situations en faisant les recherches nécessaires et en analysant les différentes composantes
+            </p>
+          <div class="control is-flex is-flex-direction-column">
+            <label class="radio+radio"><input type="radio" name="analyse" class="m-2 radio">1. Je me fie à mon instinct et je commence à travailler sans réflexion.</label>
+            <label class="radio+radio"><input type="radio" name="analyse" class="m-2 radio">2. Je consulte le web à la recherche d'une solution toute faite. Je fais appel à quelqu'un pour m'aider.</label>
+            <label class="radio+radio"><input type="radio" name="analyse" class="m-2 radio">3. Je décompose un problème en sous-éléments en utilisant un schéma. Je consulte différentes ressources & documentations pour parvenir à une solution.</label>
+            <label class="radio+radio"><input type="radio" name="analyse" class="m-2 radio">4. J'anticipe les évolutions futures et organise les problèmes. J'évalue de manière réaliste mes limites et le temps nécessaire.</label>
+          </div>
+        </div>
+
+      </div>
+     
+      <div class="is-hidden questionWrapper" data-id="2" id="2">
+        <h3 class="title is-4">Curiosité Intellectuelle</h3>
+        <p class="subtitle is-5">Je suis curieux intellectuellement pour ce qui touche à mon métier
+          Capacité d'ouvrir son champ de connaissance, d'avoir l'esprit ouvert, d'acquérir continuellement de nouvelles connaissances et d'apprendre de ses expériences antérieures.
+          </p>
+        <div class="control is-flex is-flex-direction-column">
+          <label class="radio+radio"><input type="radio" name="curiosite" class="m-2 radio">1. J'évite d'utiliser des choses inconnues et je reste sur mes acquis.</label>
+          <label class="radio+radio"><input type="radio" name="curiosite" class="m-2 radio">2. Je découvre des nouveautés lorsqu'elles se présentent à moi. Je pose des questions à mes pairs en fonction des besoins..</label>
+          <label class="radio+radio"><input type="radio" name="curiosite" class="m-2 radio">3. Je me tiens au courant des dernières nouveautés dans mon domaine. Je fais preuve de sens critique, j'établis des liens.</label>
+          <label class="radio+radio"><input type="radio" name="curiosite" class="m-2 radio">4. Je fais des recherches et me lance des défis en dehors de mon temps de travail "officiel" (hackathons, challenges…).</label>
+        </div>
+      </div>
+      <div class="is-hidden questionWrapper" data-id="3" id="3">
+        <h3 class="title is-4">Autonomie</h3>
+        <p class="subtitle is-5">Je suis curieux intellectuellement pour ce qui touche à mon métier
+          Capacité d'ouvrir son champ de connaissance, d'avoir l'esprit ouvert, d'acquérir continuellement de nouvelles connaissances et d'apprendre de ses expériences antérieures.
+          </p>
+        <div class="control is-flex is-flex-direction-column">
+          <label class="radio+radio"><input type="radio" name="autonomie" class="m-2 radio">1. J'évite d'utiliser des choses inconnues et je reste sur mes acquis.</label>
+          <label class="radio+radio"><input type="radio" name="autonomie" class="m-2 radio">2. Je découvre des nouveautés lorsqu'elles se présentent à moi. Je pose des questions à mes pairs en fonction des besoins..</label>
+          <label class="radio+radio"><input type="radio" name="autonomie" class="m-2 radio">3. Je me tiens au courant des dernières nouveautés dans mon domaine. Je fais preuve de sens critique, j'établis des liens.</label>
+          <label class="radio+radio"><input type="radio" name="autonomie" class="m-2 radio">4. Je fais des recherches et me lance des défis en dehors de mon temps de travail "officiel" (hackathons, challenges…).</label>
+        </div>
+      </div>
+      <div class="control has-text-centered my-5">
+        <buton class="button is-link submitButton" disabled>Envoyer</buton>
+      </div>
+    </form>
+  </section>
+</main>
+<footer class="footer is-flex is-justify-content-space-between">
+  <div class="content">&copy;2022</div>
+  <a class="easter-egg">Wazaaah</a>
+</footer>
+<script>
+  /* -------------- Global var --------------------*/
+const urlApi = 'http://localhost/Formation/API'
+const previousButton = document.querySelector('.previous')
+const nextButton = document.querySelector('.next')
+const progress = document.querySelector('progress')
+const control = document.querySelectorAll('.control')
+let currentQuestion = document.querySelector('.is-active')
+const submitButton = document.querySelector('.submitButton')
+const loginLink = document.querySelector('.login-link')
+const geLink = document.querySelector('.ge-link')
+const stagiaireLink = document.querySelector('.stagiaire-link')
+const sessionLink = document.querySelector('.session-link')
+const h2 = document.querySelector('h2')
+const formEval = document.querySelector('.form-eval')
+
+/* gestion du header */
+const UserType = sessionStorage.getItem('type_user')
+switch(UserType){
+  case null :
+    window.location.href = './login.html'
+    break
+  case 'stagiaire':
+    stagiaireLink.remove()
+    sessionLink.remove()
+    break
+  default:
+    geLink.remove()
+    break
+}
+//
+
+// listing des savoir-faires et comportements métiers
+fetch(urlApi + '/test.php?id_formation=1')
+    .then(response => response.json())
+    .then(response => {
+      console.log(response)
+      let template = '' // on défini une var vide pour populer l'énoncé
+      let i = 0
+      Object.values(response).forEach(forma => { // pour chaque valeur de la réponse (6, et on ne peut pas les atteindre par le nom vu qu'on les a numerroté pour pouvoir écrire spécifiquement dedans)
+      i++  //on déclare un incrémenteur pour afficher le numero de la question, on ne peut pas utiliser id savoir comme il sera supérieur à 6 pour d'autres métiers
+      template += ` 
+        <div class="questionWrapper is-hidden" data-questionCount="${i}" data-savoir="${forma.id_savoir}">
+          <div class="definition pb-4">
+            <h3 class="title is-4">${forma.nom_savoir}</h2>
+            <p class="subtitle is-5">${forma.definition_savoir}</p>
+          </div>
+          <div class="rep control is-flex is-flex-direction-column pb-4">` // ajouter l'énoncé de chaque savoir faire dans la var vide template
+        forma.comportement.forEach(comp => { // A chaque iteration du savoir faire, reboucler dedans pour aller chercher les comportements propre à chaque savoir faire (ils ne sont pas numerotés)
+          template += `
+          <label class="radio+radio"><input type="radio" name="${comp.id_savoir}" data-id=${comp.id_savoir}${comp.id_comportement} class="radio m-2">${comp.grade_comportement}. ${comp.definition_comportement}</label>` // mettre ces comportement à la suite de l'énoncé
+        })
+        template += '</div></div>' // on ajoute deux div fermantes
+      })
+      formEval.innerHTML = template // on rempli l'intérieur du formulaire avec template
+      const firstQuestion = document.querySelector('.questionWrapper')
+      firstQuestion.classList.remove('is-hidden') // on affiche la première question
+      firstQuestion.classList.add('is-active')
+      progress.setAttribute('max', document.querySelectorAll('.questionWrapper').length)
+    })
+    .catch(error=>console.log(error))
+  
+
+
+// activer le bouton envoyer si tous les radiobutton sont checked
+const checkIfComplete = () => {control.forEach(el => {
+  let radioChecked = ''
+  el.addEventListener('click', () => {
+    radioChecked = document.querySelectorAll('input[type="radio"]:checked')
+    if (radioChecked.length == questionWrapper.length) { 
+      submitButton.removeAttribute('disabled')
+    }
+  })
+}) // ne fonctionne plus. On l'a cassé car ça regarde le questionWrapper avant 
+}
+
+
+
+formEval.addEventListener('click', () => {
+  document.querySelectorAll('input[type="radio"]:checked').length === document.querySelectorAll('.questionWrapper').length 
+  ? submitButton.removeAttribute('disabled')
+  : console.log('pas encore complété')
+
+})
+
+
+
+// cliquer sur suivant affiche la question suivante
+
+nextButton.addEventListener('click', (e)=> {
+  let nextQuestion = parseInt(currentQuestion.dataset.questionCount)+1
+  let previousQuestion = parseInt(currentQuestion.dataset.id)-1
+  console.log(nextQuestion)
+  const questionWrapper = document.querySelectorAll('.questionWrapper')
+  console.log(questionWrapper.length)
+  if (currentQuestion.dataset.id != questionWrapper.length) { // on vérifie que c'est pas la dernière question
+    questionWrapper.forEach(q => { // on masque toute les question
+    q.classList.remove('is-active')
+    q.classList.add('is-hidden')
+  })
+  questionWrapper.forEach(q => { // on montre la question qui doit s'afficher
+    if(q.getAttribute('data-questioncount') == nextQuestion) {
+      q.classList.remove('is-hidden')
+      q.classList.add('is-active')
+    }
+  }) 
+  }
+  currentQuestion.dataset.questioncount !== 1
+    ? previousButton.removeAttribute('disabled')
+    : previousButton.setAttribute('disabled','')
+  currentQuestion.dataset.id != questionWrapper.length
+    ? nextButton.removeAttribute('disabled')
+    : nextButton.setAttribute('disabled', '')
+  progress.setAttribute('value', currentQuestion.dataset.questioncount) // progress bar +1
+  previousQuestion = parseInt(currentQuestion.dataset.questioncount)-1 // mise à jour des previous & next question
+  nextQuestion = parseInt(currentQuestion.dataset.questionCount)+1
+}) // fin click sur suivant
+
+
+// cliquer sur précédent affiche la question précédente (+/- même code que pour suivant)
+previousButton.addEventListener('click', (e) => {
+  if(previousQuestion != 0) {
+    questionWrapper.forEach(q => {
+    q.classList.remove('is-active')
+    q.classList.add('is-hidden')
+  })
+  questionWrapper.forEach(q => {
+    if(q.getAttribute('data-id') == previousQuestion) {
+      q.classList.remove('is-hidden')
+      q.classList.add('is-active')
+    }
+  })
+  }
+  currentQuestion = document.querySelector('.is-active')
+  currentQuestion.dataset.id == 1
+    ? previousButton.setAttribute('disabled','')
+    : previousButton.removeAttribute('disabled')
+  currentQuestion.dataset.id == questionWrapper.length
+  ? nextButton.removeAttribute('disabled')
+  : nextButton.removeAttribute('disabled')
+  progress.setAttribute('value', currentQuestion.dataset.id)
+  previousQuestion = parseInt(currentQuestion.dataset.id)-1
+  nextQuestion = parseInt(currentQuestion.dataset.id)+1
+}) // fin click sur précédent
+
+
+
+</script>
+</body>
+</html>

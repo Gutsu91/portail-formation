@@ -21,7 +21,7 @@ if($_SERVER['REQUEST_METHOD'] == 'GET'):
     $i = 0;
     while($row = $result->fetch_assoc()):
       $i ++;
-      $eval['formation'.$i] = $row;
+      $eval['savoir-faire '.$i] = $row;
       $req_eval = sprintf(
         "SELECT 
           c.id_comportement, c.grade_comportement, c.definition_comportement, s.id_savoir
@@ -33,7 +33,7 @@ if($_SERVER['REQUEST_METHOD'] == 'GET'):
         $i);
         $result2 = $connect->query($req_eval);
         while($row = $result2->fetch_assoc()):
-          $eval['formation'.$i]['comportement'][] = $row;
+          $eval['savoir-faire '.$i]['comportement'][] = $row;
         endwhile;
     endwhile;
   endif;
